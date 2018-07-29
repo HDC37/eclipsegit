@@ -1,0 +1,34 @@
+1，创建游戏的初始界面，只包含背景图片和开始图片。
+    创建Would类，包含背景图片，开始图片，在构造方法中初始化。
+    重写paint方法
+    main方法中创建了一个窗口，容纳并且展现World类
+    
+ 2.让下方的地面向左移动
+      创建Ground类，包含滚动图片，x滚动的横坐标，y=400
+      Ground.paint(Graphics g)绘制滚动条
+      Ground。step用来改变x
+      World类中增加一个成员变量ground
+      World中增加一个action，循环调用ground.step(x--)
+      repaint()-->ground.print(g)
+      step方法中x不能一直--，当小于-137时，x=0
+      
+ 3. 添加点击事件，游戏开始，柱子出现
+       构建了一个Column类，包含柱子图片，x,y横纵坐标
+    y=-110(让柱子中间的空位出现在正中）
+    Would类中增加三个成员变量column1,column2,start
+    Would.action()方法中注册鼠标点击事件的监听器，start=true;
+    Would.paint()方法中添加判断条件，start=false的时候绘制开始图片，start== true的时候绘制柱子图片
+    
+  4.柱子移动
+  
+  5.添加小鸟
+        构建了一个Bird类，包含小鸟三张图片的数组，x,y为横纵坐标
+    step方法更新小鸟的图片
+    Would.action中，start==true时，bird.step(),小鸟扇翅膀
+  
+  6.碰撞检测
+  
+  
+  
+  
+  
