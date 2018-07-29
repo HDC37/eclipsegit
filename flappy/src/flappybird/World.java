@@ -12,28 +12,29 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-//ºÎ¶«
+//helloworld
+//ä½•ä¸œ
 /**
- * ¶¨ÒåÊÀ½ç
+ * å®šä¹‰ä¸–ç•Œ
  * @author g
- * ½«±³¾°Í¼Æ¬£¬¿ªÊ¼Í¼Æ¬¼Óµ½ÄÚ´æ
+ * å°†èƒŒæ™¯å›¾ç‰‡ï¼Œå¼€å§‹å›¾ç‰‡åŠ åˆ°å†…å­˜
  */
 public class World extends JPanel{
   /**
-   * ±³¾°
+   * èƒŒæ™¯
    */
 	BufferedImage background;
   /**
-   * ¿ªÊ¼Í¼Æ¬
+   * å¼€å§‹å›¾ç‰‡
    */
 	BufferedImage startImage;
 	/**
-	 * Ôö¼ÓµØÃæ
+	 * å¢åŠ åœ°é¢
 	 */
     Ground ground;
     
    /**
-    * Öù×Ó
+    * æŸ±å­
     */
     Column column1;
     Column column2;
@@ -42,39 +43,39 @@ public class World extends JPanel{
     Bird bird;
     int score;
 /**
- * ¶¨ÒåÒ»¸ö¹¹Ôì·½·¨,³õÊ¼»¯
+ * å®šä¹‰ä¸€ä¸ªæ„é€ æ–¹æ³•,åˆå§‹åŒ–
  * @throws IOException 
  */
 public World() throws IOException{
 	/**
-	 *½«±³¾°Í¼Æ¬£¬¿ªÊ¼Í¼Æ¬¼ÓÔØµ½ÄÚ´æÖĞ
+	 *å°†èƒŒæ™¯å›¾ç‰‡ï¼Œå¼€å§‹å›¾ç‰‡åŠ è½½åˆ°å†…å­˜ä¸­
 	 */
 	background = ImageIO.read(getClass().getResource("bg.png"));
 	startImage = ImageIO.read(getClass().getResource("start.png"));
 	/**
-	 * ³õÊ¼»¯µØÃæ
+	 * åˆå§‹åŒ–åœ°é¢
 	 */
 	ground = new Ground();
 	/**
-	 * ³õÊ¼»¯Öù×Ó
+	 * åˆå§‹åŒ–æŸ±å­
 	 */
 	column1 = new Column(420);
 	column2 = new Column(600);
-	/*³õÊ¼»¯Ğ¡Äñ
+	/*åˆå§‹åŒ–å°é¸Ÿ
 	 */
 	bird = new Bird (140,225);
 }
 	/**
-	 * »æÖÆÍ¼Æ¬
+	 * ç»˜åˆ¶å›¾ç‰‡
 	 */
 	public void paint(Graphics g){
 		/**
-		 * »æÖÆ±³¾°Í¼Æ¬
+		 * ç»˜åˆ¶èƒŒæ™¯å›¾ç‰‡
 		 */
 		g.drawImage(background,0,0,null);
 		
 		/**
-	     * »æÖÆÖù×Ó
+	     * ç»˜åˆ¶æŸ±å­
 	     */
 	    if(start == true ){
 	    	column1.paint(g);
@@ -92,19 +93,19 @@ public World() throws IOException{
 			}
 	    }
 	    /**
-		 * »æÖÆ¿ªÊ¼Í¼Æ¬
+		 * ç»˜åˆ¶å¼€å§‹å›¾ç‰‡
 		 */
 		if(start == false){
 		g.drawImage(startImage,0,0,null);
 		
 		}
 	    /**
-	  	 * Ê¹ÓÃground»æÖÆ¿ÉÒÆ¶¯µØÃæÍ¼Æ¬
+	  	 * ä½¿ç”¨groundç»˜åˆ¶å¯ç§»åŠ¨åœ°é¢å›¾ç‰‡
 	  	 */
 	    
 	  		    ground.paint(g);
 	  		    
-	  		//»æÖÆ·ÖÊı
+	  		//ç»˜åˆ¶åˆ†æ•°
 	  g.setFont(new Font(Font.MONOSPACED,Font.BOLD ,25));
 	  g.setColor(Color.white );
 	  g.drawString("score="+score,25,40)	;	    
@@ -112,12 +113,12 @@ public World() throws IOException{
 		
 	}
 	/**
-	 * ÓÎÏ·¿ªÊ¼µÄ¶¯×÷
+	 * æ¸¸æˆå¼€å§‹çš„åŠ¨ä½œ
 	 * @throws InterruptedException 
 	 */
 	public void action () throws InterruptedException{
 		/**
-		 * Ìí¼ÓÊó±êµã»÷ÊÂ¼ş
+		 * æ·»åŠ é¼ æ ‡ç‚¹å‡»äº‹ä»¶
 		 */
 		addMouseListener(new MouseListener(){
 
@@ -140,7 +141,7 @@ public World() throws IOException{
 			}
  
 			/**
-			 * Êó±êµã»÷£¬ÓÎÏ·¿ªÊ¼
+			 * é¼ æ ‡ç‚¹å‡»ï¼Œæ¸¸æˆå¼€å§‹
 			 */
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -151,7 +152,7 @@ public World() throws IOException{
 					gameover = false;
 					
 					/**
-					 * ³õÊ¼»¯µØÃæ
+					 * åˆå§‹åŒ–åœ°é¢
 					 */
 					try {
 						ground = new Ground();
@@ -160,7 +161,7 @@ public World() throws IOException{
 						e2.printStackTrace();
 					}
 					/**
-					 * ³õÊ¼»¯Öù×Ó
+					 * åˆå§‹åŒ–æŸ±å­
 					 */
 					try {
 						column1 = new Column(420);
@@ -174,7 +175,7 @@ public World() throws IOException{
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					/*³õÊ¼»¯Ğ¡Äñ
+					/*åˆå§‹åŒ–å°é¸Ÿ
 					 */
 					try {
 						bird = new Bird (140,225);
@@ -185,7 +186,7 @@ public World() throws IOException{
 				    
 				}
 				start = true ;
-				//Ã¿´Îµã»÷Êó±êµÄÊ±ºò£¬Ğ¡Äñµ±Ç°ËÙ¶ÈÖØĞÂ±äÎªÏòÉÏµÄ³õËÙ¶È20
+				//æ¯æ¬¡ç‚¹å‡»é¼ æ ‡çš„æ—¶å€™ï¼Œå°é¸Ÿå½“å‰é€Ÿåº¦é‡æ–°å˜ä¸ºå‘ä¸Šçš„åˆé€Ÿåº¦20
 				bird.flappy();
 			}
 
@@ -198,14 +199,14 @@ public World() throws IOException{
 		});
 	
 		while(true){
-		ground.step();//µ÷ÓÃstep·½·¨
+		ground.step();//è°ƒç”¨stepæ–¹æ³•
 		if (start == true )
-		{  //»æÖÆÖù×Ó
+		{  //ç»˜åˆ¶æŸ±å­
 			column1.step();
 			column2.step();
-			//Ğ¡ÄñÉÈ³á°ò
+			//å°é¸Ÿæ‰‡ç¿…è†€
 			bird.step();
-			//Åö×²¼ì²â
+			//ç¢°æ’æ£€æµ‹
 			if(bird.hit(column1, column2, ground)){
 				start =false;
 				gameover=true;
@@ -214,51 +215,51 @@ public World() throws IOException{
 				score++;
 			}
 		}
-		repaint();//ÖØĞÂ»æÖÆ
-		Thread.sleep(1000/60);//Ò»Ãë»æÖÆ60´Î
+		repaint();//é‡æ–°ç»˜åˆ¶
+		Thread.sleep(1000/60);//ä¸€ç§’ç»˜åˆ¶60æ¬¡
 		}	
 	}
 	/**
-	 * Ö÷·½·¨
+	 * ä¸»æ–¹æ³•
 	 * @param args
 	 * @throws IOException 
 	 * @throws InterruptedException 
 	 */
 	public static void main (String[] args) throws IOException, InterruptedException{
 		/**
-		 * ´´½¨Ò»¸ö´°¿Ú
+		 * åˆ›å»ºä¸€ä¸ªçª—å£
 		 */
 		JFrame frame =new JFrame("FlappyBird");
 		/**
-		 * ´´½¨Ò»¸öÃæ°å
+		 * åˆ›å»ºä¸€ä¸ªé¢æ¿
 		 */
 		World world =new World();
 		/**
-		 * ÉèÖÃ´°¿Ú´óĞ¡
+		 * è®¾ç½®çª—å£å¤§å°
 		 */
 		frame.setSize(320,480);
 		/**
-		 * ÉèÖÃ´°¿Ú²»¿É¸Ä±ä´óĞ¡
+		 * è®¾ç½®çª—å£ä¸å¯æ”¹å˜å¤§å°
 		 */
 		frame.setResizable(false);
 		/**
-		 * ÉèÖÃ¹Ø±Õ´°¿ÚÍË³ö³ÌĞò
+		 * è®¾ç½®å…³é—­çª—å£é€€å‡ºç¨‹åº
 		 */
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE );
 		/**
-		 * ÉèÖÃ´°¿ÚÏÔÊ¾ÔÚÆÁÄ»ÖĞ¼ä
+		 * è®¾ç½®çª—å£æ˜¾ç¤ºåœ¨å±å¹•ä¸­é—´
 		 */
 		frame.setLocationRelativeTo(null);
 		/**
-		 * ½«Ãæ°åWorldÌí¼Óµ½´°¿ÚÖĞ
+		 * å°†é¢æ¿Worldæ·»åŠ åˆ°çª—å£ä¸­
 		 */
 		frame.add(world);
 		/**
-		 * ÉèÖÃ´°¿Ú¿É¼û
+		 * è®¾ç½®çª—å£å¯è§
 		 */
 		frame.setVisible(true);
 		/**
-		 * Ö´ĞĞ¿ªÊ¼¶¯×÷
+		 * æ‰§è¡Œå¼€å§‹åŠ¨ä½œ
 		 */
 	    world.action();
 		
